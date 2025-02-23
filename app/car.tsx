@@ -32,8 +32,8 @@ export function Model(props: GroupProps) {
     <group {...props} dispose={null}>
       <group
         position={[-0.015, -0.009, 0.063]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.578}
+        rotation={[-Math.PI / 2, 0, 1]}
+        scale={0.5}
       >
         <group position={[0, -0.003, 0.007]}>
           <mesh
