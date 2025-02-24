@@ -22,7 +22,7 @@ const Factory = () => {
           })
         }
       />
-      <div className="absolute flex gap-4 justify-center bottom-10 w-full">
+      <div className="absolute flex-wrap flex gap-4 justify-center bottom-10 w-full">
         {Array.from({ length: 5 }).map((_, i) => (
           <Image
             onClick={() => dispatch({ decal: `/decal${i + 1}.png` })}
