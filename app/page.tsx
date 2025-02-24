@@ -1,7 +1,8 @@
 "use client"
 
 import { Model } from "@/app/car"
-import { Center, Environment, OrbitControls } from "@react-three/drei"
+import Factory from "@/app/factory"
+import { Center, Environment, Html, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 
 export default function Home() {
@@ -18,10 +19,10 @@ export default function Home() {
           <Model />
         </Center>
         <ambientLight intensity={Math.PI} />
+        <Html fullscreen>
+          <Factory />
+        </Html>
       </Canvas>
-      <div className="absolute sm:inset-4 lg:inset-6 xl:inset-8">
-        <h1>Content</h1>
-      </div>
     </main>
   )
 }

@@ -7,26 +7,22 @@ Source: https://sketchfab.com/3d-models/free-porsche-911-carrera-4s-d01b25448379
 Title: (FREE) Porsche 911 Carrera 4S
 */
 
+import { useConfigStore } from "@/zustand/store"
 import { useGLTF } from "@react-three/drei"
 import { GroupProps } from "@react-three/fiber"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import * as THREE from "three"
 
 export function Model(props: GroupProps) {
   const { nodes, materials } = useGLTF("./scene.gltf")
-
-  const [carColor, setCarColor] = useState(new THREE.Color("red")) // Initial color
+  const { carColor } = useConfigStore()
 
   useEffect(() => {
     // Update the paint material color
     if (materials.paint) {
-      materials.paint.color.set(carColor)
+      materials.paint.color.set(new THREE.Color(carColor))
     }
   }, [carColor, materials])
-
-  const changeColor = (newColor: string | THREE.Color) => {
-    setCarColor(new THREE.Color(newColor))
-  }
 
   return (
     <group {...props} dispose={null}>
