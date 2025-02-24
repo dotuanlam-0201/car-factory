@@ -14,7 +14,7 @@ export default function Home() {
       >
         <color attach="background" args={["#171720"]} />
         <Environment preset={"city"} />
-        <OrbitControls />
+        <OrbitControls enableDamping />
         <Center>
           <Model />
         </Center>

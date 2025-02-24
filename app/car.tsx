@@ -8,14 +8,15 @@ Title: (FREE) Porsche 911 Carrera 4S
 */
 
 import { useConfigStore } from "@/zustand/store"
-import { useGLTF } from "@react-three/drei"
+import { Decal, useGLTF, useTexture } from "@react-three/drei"
 import { GroupProps } from "@react-three/fiber"
 import { useEffect } from "react"
 import * as THREE from "three"
 
 export function Model(props: GroupProps) {
   const { nodes, materials } = useGLTF("./scene.gltf")
-  const { carColor } = useConfigStore()
+  const { carColor, decal } = useConfigStore()
+  const texture = useTexture(decal ?? "/decal1.png")
 
   useEffect(() => {
     // Update the paint material color
@@ -202,14 +203,20 @@ export function Model(props: GroupProps) {
           rotation={[0.082, 0, Math.PI]}
           scale={[0.395, 0.395, 0.357]}
         />
-        <mesh geometry={nodes.boot008_0.geometry} material={materials.paint} />
+        <mesh geometry={nodes.boot008_0.geometry} material={materials.paint}>
+          <Decal
+            rotation={[0, 0, 0]}
+            position={[0, -2.4, 1]}
+            scale={2}
+            map={texture}
+          />
+        </mesh>
         <mesh geometry={nodes.boot009_0.geometry} material={materials.silver} />
         <mesh
           geometry={nodes.boot010_0.geometry}
           material={materials.plastic}
         />
-        <mesh geometry={nodes.boot011_0.geometry} material={materials.coat} />
-        <mesh geometry={nodes.boot011_0_1.geometry} material={materials.coat} />
+
         <mesh
           geometry={nodes.Cube002_0.geometry}
           material={materials.full_black}
