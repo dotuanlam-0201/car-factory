@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <main className="h-screen relative">
       <Canvas
+        fallback={<span>...Loading</span>}
         camera={{ position: [0, 0, 70], fov: 2 }}
         gl={{ antialias: true }}
       >
