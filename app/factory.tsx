@@ -59,7 +59,7 @@ const Factory = () => {
       <div id="pallet-color">
         <ColorPickComponent
           defaultValue={carColor}
-          onChange={(value: Color, info) =>
+          onChange={(value: Color) =>
             dispatch({
               carColor: `rgb(${value.r},${value.g},${value.b})`,
             })

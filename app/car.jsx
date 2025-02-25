@@ -9,11 +9,10 @@ Title: (FREE) Porsche 911 Carrera 4S
 
 import { useConfigStore } from "@/zustand/store"
 import { Decal, useGLTF, useTexture } from "@react-three/drei"
-import { GroupProps } from "@react-three/fiber"
 import { useEffect } from "react"
 import * as THREE from "three"
 
-export function Model(props: GroupProps) {
+export function Model(props) {
   const { nodes, materials } = useGLTF("./scene.gltf")
   const { carColor, decal } = useConfigStore()
   const texture = useTexture(decal ?? "/decal1.png")
