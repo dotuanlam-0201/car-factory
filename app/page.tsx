@@ -2,8 +2,12 @@
 
 import { Model } from "@/app/car"
 import Factory from "@/app/factory"
+import { useGSAP } from "@gsap/react"
 import { Center, Environment, Html, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
+import gsap from "gsap"
+
+gsap.registerPlugin(useGSAP) // register any plugins, including the useGSAP hook
 
 export default function Home() {
   return (
