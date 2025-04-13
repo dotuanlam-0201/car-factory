@@ -26,17 +26,17 @@ export default function Home() {
         <color attach="background" args={["#171720"]} />
         <Environment preset={"city"} />
         <OrbitControls enableDamping />
-        <Center>
-          <Suspense
-            fallback={
-              <Text color={"#fff"} fontSize={0.2}>
-                Loading Model...
-              </Text>
-            }
-          >
+        <Suspense
+          fallback={
+            <Text color={"#fff"} fontSize={0.2}>
+              Loading Model...
+            </Text>
+          }
+        >
+          <Center>
             <Model />
-          </Suspense>
-        </Center>
+          </Center>
+        </Suspense>
         <ambientLight intensity={Math.PI} />
         <Html fullscreen>
           <Factory />
